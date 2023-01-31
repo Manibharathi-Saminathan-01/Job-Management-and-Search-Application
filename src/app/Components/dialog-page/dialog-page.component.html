@@ -1,0 +1,93 @@
+<div class="form-filds">
+  <mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+      <h2>Form</h2>
+
+      <mat-form-field appearance="fill" class="company-name">
+        <mat-label>Company name</mat-label>
+        <input matInput name="company" formControlName="company" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="company-logo">
+        <mat-label>Company logo</mat-label>
+        <input matInput name="logo" formControlName="logo" />
+      </mat-form-field>
+      <mat-checkbox class="example-margin" name="new" formControlName="new"
+        >New</mat-checkbox
+      >
+      <mat-checkbox
+        class="example-margin"
+        name="featured"
+        formControlName="featured"
+        >Featured</mat-checkbox
+      >
+      <mat-form-field appearance="fill" class="company-possition">
+        <mat-label>Possition</mat-label>
+        <input matInput name="possition" formControlName="possition" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="company-roll">
+        <mat-label>Role</mat-label>
+        <input matInput name="roll" formControlName="roll" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="company-level">
+        <mat-label>Level</mat-label>
+        <mat-select name="level" formControlName="level">
+          <mat-option value="one">Junior</mat-option>
+          <mat-option value="two">Midweight</mat-option>
+          <mat-option value="two">Senior</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="company-posted">
+        <mat-label>Posted At</mat-label>
+        <input matInput name="postedAt" formControlName="postedAt" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="contract-input">
+        <mat-label>Contract</mat-label>
+        <input matInput name="contract" formControlName="contract" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="location-input">
+        <mat-label>Location</mat-label>
+        <input matInput name="location" formControlName="location" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="company-tools">
+        <mat-label>tools</mat-label>
+        <mat-select name="tool" formControlName="tool" multiple>
+          <mat-select-trigger>
+            <span class="example-additional-selection"> </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of tools" [value]="topping">{{
+            topping
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-selection-list
+        #shoes
+        class="company-language"
+        name="language"
+        formControlName="language"
+      >
+        <mat-label>Please select Languages</mat-label>
+        <mat-list-option *ngFor="let lang of languages" [value]="lang">
+          {{ lang }}
+        </mat-list-option>
+      </mat-selection-list>
+
+      <p>Options selected: {{ shoes.selectedOptions.selected.length }}</p>
+
+      <mat-dialog-actions align="end" class="end-buttons">
+        <button mat-button mat-dialog-close (click)="onClickCancel()">
+          Cancel
+        </button>
+        <button
+          mat-button
+          [mat-dialog-close]="true"
+          cdkFocusInitial
+          type="submit"
+        >
+          Submit
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+</div>

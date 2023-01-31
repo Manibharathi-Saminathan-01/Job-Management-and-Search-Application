@@ -1,0 +1,105 @@
+<div class="main-page">
+  <img
+    class="header-background-img"
+    src="../../../assets/bg-header-desktop.svg"
+  />
+  <div class="matchip-search-bar">
+    <mat-form-field class="example-chip-list" appearance="fill">
+      <mat-label>search here</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Enter company name">
+        <mat-chip-row
+          *ngFor="let lang of languagesAndSkills"
+          (removed)="remove(lang)"
+          [editable]="true"
+          (edited)="edit(lang, $event)"
+          [aria-description]="'press enter to edit ' + lang.name"
+        >
+          {{ lang.name }}
+          <button matChipRemove [attr.aria-label]="'remove ' + lang.name">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+        <input
+          placeholder="Enter the skills"
+          [matChipInputFor]="chipGrid"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+        />
+        <button mat-button (click)="onClearClick()" class="clear-button">
+          Clear
+        </button>
+      </mat-chip-grid>
+    </mat-form-field>
+  </div>
+  <div class="add-company-button">
+    <button mat-raised-button color="primary" (click)="onClickAddButton()">
+      Add
+    </button>
+  </div>
+
+  <mat-card class="example-card" *ngFor="let company of companyDetails">
+    <div class="image-container">
+      <mat-card-header class="card-header">
+        <img mat-card-sm-image [src]="company.logo" class="img-source" />
+        <mat-card-title-group class="title-cards">
+          <mat-card-subtitle class="company-name-text"
+            >{{ company.company }}
+            <button class="new-button" *ngIf="company.new">NEW!</button>
+            <button class="featured-button" *ngIf="company.featured">
+              FEATURED
+            </button></mat-card-subtitle
+          >
+          <mat-card-title class="title-card">{{
+            company.possition
+          }}</mat-card-title>
+          <mat-card-subtitle class="subtitle"
+            >{{ company.postedAt }} . {{ company.contract }} .
+            {{ company.location }}</mat-card-subtitle
+          >
+        </mat-card-title-group>
+        <mat-card-actions align="end" class="menu-bars">
+          <div class="all-lang-tool">
+            <button
+              mat-button
+              class="js-button"
+              *ngFor="let lang of company.language"
+            >
+              <span class="font-color-tool">{{ lang }}</span>
+            </button>
+            <button
+              mat-button
+              class="js-button"
+              *ngFor="let tool of company.tool"
+            >
+              <span class="font-color-tool">{{ tool }}</span>
+            </button>
+          </div>
+          <div>
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="mat-menu-adjust">
+              <button mat-menu-item (click)="onClickEdit(company.id)">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item (click)="onClickClone(company.id)">
+                <mat-icon>toll</mat-icon>
+                <span>Clone</span>
+              </button>
+              <button mat-menu-item (click)="onClickDelete(company.id)">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </div>
+        </mat-card-actions>
+      </mat-card-header>
+    </div>
+  </mat-card>
+</div>

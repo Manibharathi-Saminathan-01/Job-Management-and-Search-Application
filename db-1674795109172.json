@@ -1,0 +1,19 @@
+{
+  "company": [
+    {
+      "id": "1",
+      "company": null,
+      "logo": null,
+      "new": true,
+      "featured": true,
+      "possition": null,
+      "roll": null,
+      "level": null,
+      "postedAt": null,
+      "contract": null,
+      "location": null,
+      "language": null,
+      "tool": null
+    }
+  ]
+}

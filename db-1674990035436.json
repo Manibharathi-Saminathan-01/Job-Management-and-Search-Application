@@ -1,0 +1,19 @@
+{
+  "company": [
+    {
+      "company": "amazon",
+      "logo": null,
+      "new": null,
+      "featured": null,
+      "possition": null,
+      "roll": null,
+      "level": "two",
+      "postedAt": null,
+      "contract": null,
+      "location": null,
+      "language": null,
+      "tool": null,
+      "id": 1
+    }
+  ]
+}
