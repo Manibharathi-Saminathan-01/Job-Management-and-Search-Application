@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Project description
+
+This project is designed to list jobs and search them by skills, address, and other criteria. The data is rendered from a local database server.  
+
+### Key Details:
+1. **Starting the Database Server**:  
+   To start the database server, run the following npm command:  
+   ```bash
+   json-server --watch db.json
+   ```
+
+2. **Features**:  
+   - Add new jobs.  
+   - Edit, clone, or delete existing jobs.  
+   - Search jobs using keywords.  
+
+3. **Technology**:  
+   This project is built using the Angular framework.  
